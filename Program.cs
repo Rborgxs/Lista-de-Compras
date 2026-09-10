@@ -48,21 +48,26 @@ public class Program
 
                     if (!string.IsNullOrEmpty(addItem))
                     {
+                        addItem = addItem.Trim();
                         addItem = $"{char.ToUpper(addItem[0])}{addItem.Substring(1).ToLower()}"; // Capitalização
 
+                        // Item já existe
                         if (shoppingList.Contains(addItem))
                         {
                             Console.Write($"\nO item '{addItem}' já está na lista!");
                             Console.Write("\nClique para continuar... ");
                             Console.ReadKey();
-                            break;
                         }
-
-                        shoppingList.Add(addItem);
-                        Console.Write($"\n{addItem} agora está na lista!\nClique para continuar... ");
-                        Console.ReadKey();
-                        break;
+                        else
+                        {
+                            // Item não existe
+                            shoppingList.Add(addItem);
+                            Console.Write($"\n{addItem} agora está na lista!\nClique para continuar... ");
+                            Console.ReadKey();
+                        }
+                        break;                        
                     }
+
                     else
                     {
                         Console.Write("\nDigite um texto válido!");
@@ -72,6 +77,7 @@ public class Program
                     }
 
                 case 3:
+                    // Excluir item
                     break;
 
                 default:
