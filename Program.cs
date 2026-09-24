@@ -110,8 +110,8 @@ public class Program()
                             Console.WriteLine("\nQual item deseja excluir? ");
                             index = Convert.ToInt32(Console.ReadLine()!) - 1;
 
-                            //if (index < 0 || index >= shoppingList.Count)
-                            //    throw new IndexOutOfRangeException("Índice inválido!");
+                            if (index < 0 || index >= shoppingList.Count)
+                                throw new IndexOutOfRangeException("Índice inválido!");
                         }
                         catch (FormatException)
                         {
